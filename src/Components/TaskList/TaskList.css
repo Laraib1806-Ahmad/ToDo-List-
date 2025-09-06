@@ -1,0 +1,58 @@
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  background: #f9f9ff;
+  border: 2px solid #ddd;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.task-text {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.task-date {
+  display: block;
+  font-size: 12px;
+  color: #777;
+  margin-top: 4px;
+}
+
+.task-buttons {
+  margin-top: 10px;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 6px 12px;
+  margin-right: 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.edit-btn {
+  background: #bbc7ff;
+  color: #000;
+}
+
+.edit-btn:hover {
+  background: #3b25ff;
+}
+
+.delete-btn {
+  background: #fc5f6f;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #b02a37;
+}
