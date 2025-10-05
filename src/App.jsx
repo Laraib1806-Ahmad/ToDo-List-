@@ -10,7 +10,7 @@ export default function App() {
   const [search, setSearch] = useState("");
   const [editIndex, setEditIndex] = useState(null);
 
-  // Add or update task
+ 
   const handleAddOrUpdate = () => {
     if (!newTask.trim()) return;
 
@@ -23,32 +23,28 @@ export default function App() {
       setTasks(updatedTasks);
       setEditIndex(null);
     } else {
-      // ✅ include completed field
+     
       setTasks([...tasks, { text: newTask, dateTime, completed: false }]);
     }
 
     setNewTask("");
   };
 
-  // Edit task
   const handleEdit = (index) => {
     setNewTask(tasks[index].text);
     setEditIndex(index);
   };
 
-  // Delete task
   const handleDelete = (index) => {
     setTasks(tasks.filter((_, i) => i !== index));
   };
 
-  // ✅ Toggle task complete/incomplete
   const handleToggleComplete = (index) => {
     const updatedTasks = [...tasks];
     updatedTasks[index].completed = !updatedTasks[index].completed;
     setTasks(updatedTasks);
   };
 
-  // Search filter
   const filteredTasks = tasks.filter((task) =>
     task.text.toLowerCase().includes(search.toLowerCase())
   );
@@ -74,7 +70,7 @@ export default function App() {
           tasks={filteredTasks}
           handleEdit={handleEdit}
           handleDelete={handleDelete}
-          handleToggleComplete={handleToggleComplete} // ✅ added
+          handleToggleComplete={handleToggleComplete} 
         />
       </main>
     </div>

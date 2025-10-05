@@ -4,7 +4,6 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Sidebar */
 .sidebar {
   width: 250px;
   background: linear-gradient(135deg, #d2f2f8, #cce9f6);
@@ -18,7 +17,6 @@
   font-size: 30px;
 }
 
-/* Main Content */
 .main-content {
   flex: 1;
   padding: 30px;
