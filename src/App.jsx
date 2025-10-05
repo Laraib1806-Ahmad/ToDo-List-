@@ -4,7 +4,6 @@ import AddTask from "./Components/AddTask/AddTask";
 import TaskList from "./Components/TaskList/TaskList";
 import Search from "./Components/Search/Search";
 
-
 export default function App() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
@@ -20,10 +19,12 @@ export default function App() {
     if (editIndex !== null) {
       const updatedTasks = [...tasks];
       updatedTasks[editIndex].text = newTask;
+      updatedTasks[editIndex].dateTime = dateTime;
       setTasks(updatedTasks);
       setEditIndex(null);
     } else {
-      setTasks([...tasks, { text: newTask, dateTime }]);
+      // ✅ include completed field
+      setTasks([...tasks, { text: newTask, dateTime, completed: false }]);
     }
 
     setNewTask("");
@@ -40,6 +41,13 @@ export default function App() {
     setTasks(tasks.filter((_, i) => i !== index));
   };
 
+  // ✅ Toggle task complete/incomplete
+  const handleToggleComplete = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = !updatedTasks[index].completed;
+    setTasks(updatedTasks);
+  };
+
   // Search filter
   const filteredTasks = tasks.filter((task) =>
     task.text.toLowerCase().includes(search.toLowerCase())
@@ -47,9 +55,7 @@ export default function App() {
 
   return (
     <div className="app-container">
-        
-    
-       <aside className="sidebar">
+      <aside className="sidebar">
         <h2>Search</h2>
         <Search search={search} setSearch={setSearch} />
       </aside>
@@ -68,8 +74,9 @@ export default function App() {
           tasks={filteredTasks}
           handleEdit={handleEdit}
           handleDelete={handleDelete}
+          handleToggleComplete={handleToggleComplete} // ✅ added
         />
-      </main> 
+      </main>
     </div>
   );
 }

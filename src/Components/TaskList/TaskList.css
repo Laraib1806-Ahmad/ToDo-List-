@@ -56,3 +56,18 @@
 .delete-btn:hover {
   background: #b02a37;
 }
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.task-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.task-checkbox {
+  transform: scale(1.2);
+  cursor: pointer;
+}
